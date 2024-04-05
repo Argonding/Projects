@@ -1,1 +1,1 @@
-Here I'll post several projects proposed on calsses
+Here I'll post several projects proposed on classes
