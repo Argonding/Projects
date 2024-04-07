@@ -141,6 +141,8 @@ In summary, Zn isotopes serve as powerful tools for deciphering Earth's past, re
 > 示踪再循环洋壳
 > 
 > 约束玄武岩成分变化机制
+>
+> 月球形成年龄约束：月球在整个星球的尺度上Zn的分馏都存在较大差异，说明在形成时期经历了高温高压条件的冲击活动，侧面支持了月球的大撞击假说。
 
 #### 矿床学方面的应用
 
