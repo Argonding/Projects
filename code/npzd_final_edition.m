@@ -15,7 +15,7 @@ e = 0.05; % 碎屑再矿化率
 k_H = 3.3e-2; % CO2的亨利常数，单位mol/L·atm
 P_total = 1; % 总大气压，单位atm
 k_CO2 = 0.00005; % CO2的半饱和常数
-C_max = 0.001; % CO2浓度的抑制阈值
+CO2_max = 0.001; % CO2浓度的抑制阈值
 alpha = 0.000005; % 酸化程度影响系数
 
 % 读取CO2大气浓度数据
@@ -44,13 +44,13 @@ for i = 1:30
     P_CO2 = CO2_air_ppm * P_total / 1e6;
     
     % 计算CO2在水中的浓度
-    CO2_concentration = k_H * P_CO2;
+    CO2_sea = k_H * P_CO2;
     
     % 计算酸化程度
-    acidification = CO2_concentration;
+    acidification = P_CO2;
     
     % 定义微分方程
-    odefun_with_CO2 = @(t, y) npzd_ode_with_CO2(t, y, Um, kN, Gm, lambda, gamma, theta, Is, I0, Qg10, Qh10, Mp, MZ, e, CO2_concentration, k_CO2, C_max, CO2_air_ppm, alpha, acidification);
+    odefun_with_CO2 = @(t, y) npzd_ode_with_CO2(t, y, Um, kN, Gm, lambda, gamma, theta, Is, I0, Qg10, Qh10, Mp, MZ, e, CO2_sea, k_CO2, CO2_max, CO2_air_ppm, alpha, acidification);
     
     % 使用ode15s求解
     [t, y] = ode15s(odefun_with_CO2, tspan, y0);
@@ -93,13 +93,13 @@ for i = 31:length(CO2_data)
     P_CO2 = CO2_air_ppm * P_total / 1e6;
     
     % 计算CO2在水中的浓度
-    CO2_concentration = k_H * P_CO2;
+    CO2_sea = k_H * P_CO2;
     
     % 计算酸化程度
-    acidification = log10(CO2_concentration / k_H);
+    acidification = P_CO2;
     
     % 定义微分方程
-    odefun_with_CO2 = @(t, y) npzd_ode_with_CO2(t, y, Um, kN, Gm, lambda, gamma, theta, Is, I0, Qg10, Qh10, Mp, MZ, e, CO2_concentration, k_CO2, C_max, CO2_air_ppm, alpha, acidification);
+    odefun_with_CO2 = @(t, y) npzd_ode_with_CO2(t, y, Um, kN, Gm, lambda, gamma, theta, Is, I0, Qg10, Qh10, Mp, MZ, e, CO2_sea, k_CO2, CO2_max, CO2_air_ppm, alpha, acidification);
     
     % 使用ode15s求解
     [t, y] = ode15s(odefun_with_CO2, tspan, y0);
@@ -157,7 +157,7 @@ function dydt = npzd_ode_with_CO2(t, y, Um, kN, Gm, lambda, gamma, theta, Is, I0
     hT = Qh10^(T - 10); % 摄食函数
     
     % 光限制函数
-    S = 10; % 假设S为某个值，这里可以根据实际情况设定
+    S = 10; 
     H = 3 * S;
     I_s = H * 1.51 * (1 - exp(-1.51 * H / S));
     fI = 1 / (1 - exp(-4.53)) * (1 - (1 / 4.53) * (I_s / I0) * (1 - exp(-4.53))) * (I_s / I0);
