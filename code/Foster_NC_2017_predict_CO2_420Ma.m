@@ -34,7 +34,7 @@ line([age(1), age(end)], [ymax, ymax], 'Color', color_line, 'LineStyle', '--', '
 
 % 设置图形属性
 xlabel('Age (Ma)');
-ylabel('pCO2 (ppm)');
+ylabel('CO2 (ppm)');
 title('CO2 Concentration Change Over Time');
 grid on;
 
