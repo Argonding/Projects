@@ -1,0 +1,32 @@
+\documentclass{article}
+\usepackage{tabularx}
+\usepackage{booktabs}
+
+\begin{document}
+
+\begin{table}[ht]
+\centering
+\begin{tabularx}{\textwidth}{X p{0.6\textwidth}}
+\toprule
+\textbf{文件名} & \textbf{说明} \\
+\midrule
+biodiversity_420Ma_curve.m & 绘制 420Ma 生物多样性曲线（基于 PBDB 数据库） \\
+biodiversity_interp_output.m & 对生物多样性插值，以满足 0.5Ma 的精度，写入新文件：“dataset_biodiv_from_420Ma.xlsx” \\
+curve_with_Foster_1.m & 将 Foster 数据按方法一模拟后，结合 PBDB 数据投图 \\
+Foster_NC_2017_predict_CO2_420.m & 绘制二氧化碳预测值曲线（基于 Foster 发布的数据） \\
+npzd_final_edition_Foster_1.m & 基于 Foster 数据的模拟方法一，并将数据投图（箱型图、一维轴图） \\
+npzd_final_edition_Foster_2.m & 基于 Foster 数据的模拟方法二 \\
+npzd_final_edition_Hu.m & 基于胡永云数据的模拟 \\
+T_CO2_analysis_Hu.m & 基于胡永云数据，拟合温度和二氧化碳关系 \\
+dataset_biodiv_from_420Ma.xlsx & 420Ma 以来的生物多样性数据（插值后，由 biodiversity_interp_output.m 生成，精度为 0.5Ma） \\
+dataset_CO2_biodiv_from_420Ma.xlsx & 420Ma 以来的二氧化碳与生物多样性数据（手动整理后） \\
+Foster_NC-2017_predict_CO2_420Ma.xlsx & Foster 发布的 420Ma 以来大气二氧化碳预测值 \\
+initial_LiXiang_dataset.xlsx & 胡永云团队 2022 年发表的显生宙数据集 \\
+pbdb_biodiversity_data_from_540Ma.xlsx & 540Ma 以来的生物多样性数据（基于 PBDB 数据库） \\
+\bottomrule
+\end{tabularx}
+\caption{文件列表及其说明}
+\label{tab:file_list}
+\end{table}
+
+\end{document}
