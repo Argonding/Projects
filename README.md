@@ -1,2 +1,2 @@
-# Projects
-I'll post some projects here(branches). 
+# Paper Template
+Powered by Latex and Vscode
