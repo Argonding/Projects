@@ -1,2 +1,2 @@
-# Projects
-I'll post some projects here(branches). 
+Geobiology in 2025 spring
+Professor: Bing Shen
