@@ -1,2 +1,3 @@
-Geobiology in 2025 spring
+Geobiology in 2025 spring. 
+
 Professor: Bing Shen
